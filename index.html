@@ -46,7 +46,60 @@
 <article><h3><a href="https://www.sciencedirect.com/science/article/pii/S2666606524001615">Effect of the national integrated demonstration area for the prevention and control of noncommunicable diseases programme on behavioral risk factors in China: a synthetic difference-in-differences study</a></h3><p>with Wenlan Dong et al.</p><p class="journal">The Lancet Regional Health – Western Pacific, 50 (2024)</p></article>
 <article><h3><a href="https://drive.google.com/file/d/1ruUp6q7i82eU60hiyIKmwLsfbSumCqw6/view?usp=sharing">Hate Crime and the Political Economy of Housing in New York City</a></h3><p>with LaFleur Stephens and Yuhan Zheng</p><p class="journal">American Political Science Review <span class="status">Conditionally accepted</span></p></article>
 </section>
-<footer>Zhaosheng Li · Department of Economics, Duke University</footer>
+<footer>Zhaosheng Li · Department of Economics, Duke University
+<p><button type="button" id="analytics-settings">Analytics preferences</button></p>
+<details id="privacy"><summary>Privacy</summary><p>With your permission, this website uses Google Analytics to measure visits, approximate location, referral sources, and interactions such as clicks on CV and paper PDFs. Google Analytics uses cookies; these statistics do not tell me who you are. You can accept or decline analytics and change your choice using Analytics preferences. Declining does not affect access to this website. See <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from sites that use its services</a>.</p></details>
+</footer>
 </main>
 </div>
+<div id="analytics-consent" role="region" aria-label="Analytics preferences" hidden>
+<p>May I use Google Analytics to understand visits and CV/paper-link clicks? <a href="#privacy" id="privacy-link">Privacy details</a></p>
+<button type="button" id="analytics-accept">Accept analytics</button>
+<button type="button" id="analytics-decline">Decline</button>
+</div>
+<style>
+#analytics-consent{position:fixed;bottom:16px;left:16px;right:16px;max-width:560px;margin:auto;padding:18px;background:#fff;border:1px solid #bbc6d0;border-radius:8px;box-shadow:0 4px 24px #102c4826;z-index:10;font-size:15px;color:#102c48}
+#analytics-consent[hidden]{display:none}#analytics-consent p{margin:0 0 12px}#analytics-consent button,#analytics-settings{font:inherit;padding:6px 12px;background:#fff;color:#102c48;border:1px solid #8295a6;border-radius:4px;cursor:pointer}#analytics-consent button{margin-right:8px}#analytics-settings{font-size:13px}footer details{font-size:13px;text-align:left}
+</style>
+<script>
+(function () {
+  var id = 'G-29BMBRGZ4N', key = 'analytics-consent', loaded = false;
+  var panel = document.getElementById('analytics-consent');
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { window.dataLayer.push(arguments); };
+  gtag('consent', 'default', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+  function choice() { try { return localStorage.getItem(key); } catch(e) { return null; } }
+  function enable() {
+    window['ga-disable-' + id] = false;
+    gtag('consent', 'update', {analytics_storage:'granted'});
+    if (loaded) return;
+    loaded = true;
+    gtag('js', new Date());
+    gtag('config', id, {allow_google_signals:false, allow_ad_personalization_signals:false});
+    var tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(tag);
+  }
+  function save(value) {
+    try { localStorage.setItem(key, value); } catch(e) {}
+    panel.hidden = true;
+    if (value === 'accepted') { enable(); return; }
+    window['ga-disable-' + id] = true;
+    gtag('consent', 'update', {analytics_storage:'denied'});
+    document.cookie.split(';').forEach(function(item) {
+      var name = item.trim().split('=')[0];
+      if (!/^_ga(?:_|$)/.test(name)) return;
+      ['', location.hostname, '.' + location.hostname].forEach(function(domain) {
+        document.cookie = name + '=; Max-Age=0; path=/' + (domain ? '; domain=' + domain : '');
+      });
+    });
+  }
+  document.getElementById('analytics-accept').onclick = function() { save('accepted'); };
+  document.getElementById('analytics-decline').onclick = function() { save('declined'); };
+  document.getElementById('analytics-settings').onclick = function() { panel.hidden = false; document.getElementById('analytics-accept').focus(); };
+  document.getElementById('privacy-link').onclick = function() { document.getElementById('privacy').open = true; };
+  if (choice() === 'accepted') enable(); else if (choice() !== 'declined') panel.hidden = false;
+})();
+</script>
 </body></html>
