@@ -48,7 +48,7 @@
 </section>
 <footer>Zhaosheng Li · Department of Economics, Duke University
 <p><button type="button" id="analytics-settings">Analytics preferences</button></p>
-<details id="privacy"><summary>Privacy</summary><p>With your permission, this website uses Google Analytics to measure visits, approximate location, referral sources, and interactions such as clicks on CV and paper PDFs. Google Analytics uses cookies; these statistics do not tell me who you are. You can accept or decline analytics and change your choice using Analytics preferences. Declining does not affect access to this website. See <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from sites that use its services</a>.</p></details>
+<details id="privacy"><summary>Privacy</summary><p>This website also uses Cloudflare Web Analytics for aggregate traffic and performance statistics. Cloudflare Web Analytics does not use cookies or track individual visitors. <a href="https://www.cloudflare.com/web-analytics/">About Cloudflare Web Analytics</a>.</p><p>With your permission, this website uses Google Analytics to measure visits, approximate location, referral sources, and interactions such as clicks on CV and paper PDFs. Google Analytics uses cookies; these statistics do not tell me who you are. You can accept or decline analytics and change your choice using Analytics preferences. Declining does not affect access to this website. See <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from sites that use its services</a>.</p></details>
 </footer>
 </main>
 </div>
@@ -102,4 +102,5 @@
   if (choice() === 'accepted') enable(); else if (choice() !== 'declined') panel.hidden = false;
 })();
 </script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7473373b19a64d89a922f389d62b0496"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
